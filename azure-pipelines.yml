@@ -28,8 +28,9 @@ steps:
 - task: AzureRmWebAppDeployment@4
   inputs:
     ConnectionType: 'AzureRM'
-    azureSubscription: '$(azSubscription)'
+    azureSubscription: 'ryhillcxp'
     appType: 'webAppLinux'
     WebAppName: 'ryhill-linux-todoapi'
     packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
     RuntimeStack: 'DOTNETCORE|3.1'
+    StartupCommand: 'dotnet todoapi.dll'
