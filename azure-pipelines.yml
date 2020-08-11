@@ -11,11 +11,13 @@ pool:
 
 steps:
 - task: DotNetCoreCLI@2
+  displayName: 'dotnet build'
   inputs:
     command: 'build'
     projects: '**/*.csproj'
 
 - task: DotNetCoreCLI@2
+  displayName: 'dotnet publish'
   inputs:
     command: 'publish'
     publishWebProjects: true
