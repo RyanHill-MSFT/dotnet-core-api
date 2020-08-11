@@ -15,14 +15,14 @@ steps:
   inputs:
     command: 'build'
     projects: '**/*.csproj'
-    arguments: '--configuration ($buildConfiguration)'
+    arguments: '--configuration Debug'
 
 - task: DotNetCoreCLI@2
   displayName: 'dotnet publish'
   inputs:
     command: 'publish'
     publishWebProjects: true
-    arguments: '--configuration ($buildConfiguration)'
+    arguments: '--configuration Debug'
     modifyOutputPath: false
 
 - task: AzureRmWebAppDeployment@4
