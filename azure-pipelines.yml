@@ -24,11 +24,3 @@ steps:
     publishWebProjects: true
     arguments: '--configuration Debug'
     modifyOutputPath: false
-
-- task: AzureRmWebAppDeployment@4
-  inputs:
-    ConnectionType: 'AzureRM'
-    azureSubscription: 'ryhillcxp'
-    appType: 'webApp'
-    WebAppName: 'usssaopaul'
-    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
