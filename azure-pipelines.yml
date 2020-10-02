@@ -15,12 +15,18 @@ steps:
   inputs:
     command: 'build'
     projects: '**/*.csproj'
-    arguments: '--configuration Debug'
+    arguments: '--configuration $(buildConfiguration)'
 
 - task: DotNetCoreCLI@2
   displayName: 'dotnet publish'
   inputs:
     command: 'publish'
     publishWebProjects: true
-    arguments: '--configuration Debug'
+    arguments: '--configuration $(buildConfiguration) --output $(Build.ArtifactStagingDirectory)'
     modifyOutputPath: false
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'
